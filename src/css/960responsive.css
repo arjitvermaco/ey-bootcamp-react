@@ -1,0 +1,69 @@
+/* 
+576px - sm mobiles
+768px - md tablet
+992px - lg tablet and laptops
+1200px- xl laptops
+1400px - xxl large screens */
+
+/* on the screens that are 960px or less  */
+/* small screen laptops */
+@media screen and (max-width:992px){
+    .body-container{
+        width: 100%;
+        margin: 0;
+      }
+
+    
+}
+
+/* tablets */
+@media screen and (max-width:768px){
+    .body-container{
+        width: 100%;
+        margin: 0;
+      }
+
+      .header-col:nth-child(1){
+        display: none;
+      }
+      .header-col:nth-child(3){
+        display: none;
+      }
+      .header{
+        text-align: center;
+      }
+
+}
+/* Mobiles */
+@media screen and (max-width:576px){
+    .grid-container-2{
+        grid-template-columns: auto;
+        row-gap: 10px;
+        text-align: center;
+    
+    }
+    .grid-container-2 img{
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .feature2{
+        flex-direction: column;
+    }
+
+    .flex-img-3{
+       flex-direction: column;
+       align-items: center;
+    }
+
+    .flex-img-3 img{
+        width: 300px;
+        margin: 0 auto;
+    }
+ 
+
+    
+
+
+}
+
