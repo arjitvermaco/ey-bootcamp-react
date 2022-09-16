@@ -107,3 +107,24 @@ ul li{
 .check-icon{
     color: green;
 }
+
+svg:hover{
+    cursor: pointer;
+}
+
+span.todo-done{
+    background-color: #85FFBD;
+    color: black;
+    padding: 2px 4px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+
+span.todo-not-done{
+    background-color: red;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 10px;
+    font-size: 12px;
+}
