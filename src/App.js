@@ -1,752 +1,89 @@
-import Header from './Header';
-import './index.css'
-import TableRow from './TableRow';
+import { useState } from 'react';
+import './app.css';
+
 function App() {
+  let [todoToAdd, setTodoToAdd] = useState("");
+  let [todos, setTodos] = useState(
+    [
+      {
+        id: 1,
+        task: "Learn HTML",
+        done: false
+      },
+      {
+        id: 2,
+        task: "Learn CSS",
+        done: true
+      },
+      {
+        id: 3,
+        task: "Learn J",
+        done: false
+      },
+      {
+        id: 4,
+        task: "Learn React",
+        done: false
+      }
+    ]
+  )
 
 
-
-  let users = [{
-    id: 1,
-    first_name: "Theodora",
-    last_name: "Bevens",
-    email: "tbevens0@marketwatch.com",
-    gender: "Female",
-    ip_address: "162.222.115.114"
-  }, {
-    id: 2,
-    first_name: "Boigie",
-    last_name: "Benit",
-    email: "bbenit1@nba.com",
-    gender: "Polygender",
-    ip_address: "94.101.65.253"
-  }, {
-    id: 3,
-    first_name: "Delia",
-    last_name: "Beceril",
-    email: "dbeceril2@constantcontact.com",
-    gender: "Female",
-    ip_address: "202.78.134.15"
-  }, {
-    id: 4,
-    first_name: "Early",
-    last_name: "Van Der Straaten",
-    email: "evanderstraaten3@nasa.gov",
-    gender: "Male",
-    ip_address: "216.67.0.61"
-  }, {
-    id: 5,
-    first_name: "Batsheva",
-    last_name: "Mushart",
-    email: "bmushart4@java.com",
-    gender: "Genderfluid",
-    ip_address: "61.161.65.183"
-  }, {
-    id: 6,
-    first_name: "Hillel",
-    last_name: "Carillo",
-    email: "hcarillo5@gnu.org",
-    gender: "Male",
-    ip_address: "105.26.183.205"
-  }, {
-    id: 7,
-    first_name: "Benn",
-    last_name: "Laffan",
-    email: "blaffan6@oakley.com",
-    gender: "Male",
-    ip_address: "236.184.162.12"
-  }, {
-    id: 8,
-    first_name: "Jarrod",
-    last_name: "Talby",
-    email: "jtalby7@nyu.edu",
-    gender: "Male",
-    ip_address: "53.70.189.176"
-  }, {
-    id: 9,
-    first_name: "Karla",
-    last_name: "Monument",
-    email: "kmonument8@freewebs.com",
-    gender: "Female",
-    ip_address: "177.148.178.41"
-  }, {
-    id: 10,
-    first_name: "Sullivan",
-    last_name: "Messer",
-    email: "smesser9@prlog.org",
-    gender: "Male",
-    ip_address: "241.209.216.52"
-  }, {
-    id: 11,
-    first_name: "Maxie",
-    last_name: "Waldock",
-    email: "mwaldocka@ezinearticles.com",
-    gender: "Female",
-    ip_address: "115.60.154.76"
-  }, {
-    id: 12,
-    first_name: "Koren",
-    last_name: "Fullwood",
-    email: "kfullwoodb@sakura.ne.jp",
-    gender: "Female",
-    ip_address: "249.13.96.184"
-  }, {
-    id: 13,
-    first_name: "Hynda",
-    last_name: "Griffitt",
-    email: "hgriffittc@mozilla.org",
-    gender: "Female",
-    ip_address: "40.187.199.230"
-  }, {
-    id: 14,
-    first_name: "Loralyn",
-    last_name: "Frape",
-    email: "lfraped@reddit.com",
-    gender: "Female",
-    ip_address: "214.20.44.54"
-  }, {
-    id: 15,
-    first_name: "Charo",
-    last_name: "Garnsey",
-    email: "cgarnseye@google.nl",
-    gender: "Female",
-    ip_address: "12.205.168.40"
-  }, {
-    id: 16,
-    first_name: "Linnea",
-    last_name: "Ambrogioni",
-    email: "lambrogionif@arizona.edu",
-    gender: "Female",
-    ip_address: "35.134.82.138"
-  }, {
-    id: 17,
-    first_name: "Lennard",
-    last_name: "Belle",
-    email: "lbelleg@google.pl",
-    gender: "Male",
-    ip_address: "248.101.77.188"
-  }, {
-    id: 18,
-    first_name: "Adelaida",
-    last_name: "McFetrich",
-    email: "amcfetrichh@wunderground.com",
-    gender: "Female",
-    ip_address: "34.225.133.189"
-  }, {
-    id: 19,
-    first_name: "Ivan",
-    last_name: "Rabier",
-    email: "irabieri@ucoz.ru",
-    gender: "Male",
-    ip_address: "178.200.230.81"
-  }, {
-    id: 20,
-    first_name: "Millicent",
-    last_name: "Daffern",
-    email: "mdaffernj@slideshare.net",
-    gender: "Female",
-    ip_address: "249.228.69.213"
-  }, {
-    id: 21,
-    first_name: "Sawyere",
-    last_name: "Riditch",
-    email: "sriditchk@prnewswire.com",
-    gender: "Male",
-    ip_address: "65.228.238.7"
-  }, {
-    id: 22,
-    first_name: "Codie",
-    last_name: "Wigzell",
-    email: "cwigzelll@fc2.com",
-    gender: "Genderqueer",
-    ip_address: "64.47.124.217"
-  }, {
-    id: 23,
-    first_name: "Winnifred",
-    last_name: "Stoddart",
-    email: "wstoddartm@weebly.com",
-    gender: "Female",
-    ip_address: "90.245.121.54"
-  }, {
-    id: 24,
-    first_name: "Tait",
-    last_name: "Rusted",
-    email: "trustedn@netscape.com",
-    gender: "Male",
-    ip_address: "84.107.15.49"
-  }, {
-    id: 25,
-    first_name: "Brade",
-    last_name: "Smythin",
-    email: "bsmythino@ning.com",
-    gender: "Male",
-    ip_address: "179.240.227.255"
-  }, {
-    id: 26,
-    first_name: "Milzie",
-    last_name: "Blinder",
-    email: "mblinderp@apache.org",
-    gender: "Bigender",
-    ip_address: "192.162.132.180"
-  }, {
-    id: 27,
-    first_name: "Judd",
-    last_name: "Windridge",
-    email: "jwindridgeq@bloglovin.com",
-    gender: "Male",
-    ip_address: "54.16.2.90"
-  }, {
-    id: 28,
-    first_name: "Cass",
-    last_name: "McKirton",
-    email: "cmckirtonr@timesonline.co.uk",
-    gender: "Male",
-    ip_address: "184.208.35.119"
-  }, {
-    id: 29,
-    first_name: "Finlay",
-    last_name: "Jeeves",
-    email: "fjeevess@plala.or.jp",
-    gender: "Male",
-    ip_address: "176.232.131.229"
-  }, {
-    id: 30,
-    first_name: "Roxy",
-    last_name: "Iacobini",
-    email: "riacobinit@icio.us",
-    gender: "Female",
-    ip_address: "189.211.10.232"
-  }, {
-    id: 31,
-    first_name: "Chilton",
-    last_name: "Pilgrim",
-    email: "cpilgrimu@digg.com",
-    gender: "Male",
-    ip_address: "190.118.26.168"
-  }, {
-    id: 32,
-    first_name: "Brittaney",
-    last_name: "Ridesdale",
-    email: "bridesdalev@bing.com",
-    gender: "Female",
-    ip_address: "18.247.131.17"
-  }, {
-    id: 33,
-    first_name: "Wilfred",
-    last_name: "Acreman",
-    email: "wacremanw@fastcompany.com",
-    gender: "Male",
-    ip_address: "117.203.13.235"
-  }, {
-    id: 34,
-    first_name: "Josh",
-    last_name: "Greenhill",
-    email: "jgreenhillx@yahoo.co.jp",
-    gender: "Male",
-    ip_address: "110.139.42.36"
-  }, {
-    id: 35,
-    first_name: "Auberon",
-    last_name: "Spradbery",
-    email: "aspradberyy@gnu.org",
-    gender: "Male",
-    ip_address: "227.90.248.62"
-  }, {
-    id: 36,
-    first_name: "Hamid",
-    last_name: "Jenkinson",
-    email: "hjenkinsonz@salon.com",
-    gender: "Male",
-    ip_address: "96.66.190.236"
-  }, {
-    id: 37,
-    first_name: "Sibella",
-    last_name: "Lavall",
-    email: "slavall10@oracle.com",
-    gender: "Female",
-    ip_address: "182.213.58.94"
-  }, {
-    id: 38,
-    first_name: "Chiarra",
-    last_name: "Greedy",
-    email: "cgreedy11@census.gov",
-    gender: "Female",
-    ip_address: "65.19.14.53"
-  }, {
-    id: 39,
-    first_name: "Harmonia",
-    last_name: "Turri",
-    email: "hturri12@scientificamerican.com",
-    gender: "Female",
-    ip_address: "253.15.45.49"
-  }, {
-    id: 40,
-    first_name: "Leigha",
-    last_name: "Voelker",
-    email: "lvoelker13@1und1.de",
-    gender: "Female",
-    ip_address: "223.26.145.22"
-  }, {
-    id: 41,
-    first_name: "Sande",
-    last_name: "Hacon",
-    email: "shacon14@discovery.com",
-    gender: "Female",
-    ip_address: "254.159.54.118"
-  }, {
-    id: 42,
-    first_name: "Therese",
-    last_name: "Eley",
-    email: "teley15@spiegel.de",
-    gender: "Female",
-    ip_address: "113.28.39.178"
-  }, {
-    id: 43,
-    first_name: "Silvanus",
-    last_name: "Tireman",
-    email: "stireman16@sohu.com",
-    gender: "Male",
-    ip_address: "84.3.117.238"
-  }, {
-    id: 44,
-    first_name: "Anthia",
-    last_name: "Linkin",
-    email: "alinkin17@quantcast.com",
-    gender: "Female",
-    ip_address: "166.131.124.99"
-  }, {
-    id: 45,
-    first_name: "Lanae",
-    last_name: "Fynn",
-    email: "lfynn18@reuters.com",
-    gender: "Female",
-    ip_address: "99.177.61.169"
-  }, {
-    id: 46,
-    first_name: "Gaylor",
-    last_name: "Gilhouley",
-    email: "ggilhouley19@sohu.com",
-    gender: "Male",
-    ip_address: "103.144.224.240"
-  }, {
-    id: 47,
-    first_name: "Alexandra",
-    last_name: "Ransom",
-    email: "aransom1a@newsvine.com",
-    gender: "Female",
-    ip_address: "137.170.39.87"
-  }, {
-    id: 48,
-    first_name: "Jerad",
-    last_name: "Stickley",
-    email: "jstickley1b@elpais.com",
-    gender: "Male",
-    ip_address: "104.145.141.92"
-  }, {
-    id: 49,
-    first_name: "Vivienne",
-    last_name: "Stockman",
-    email: "vstockman1c@cloudflare.com",
-    gender: "Female",
-    ip_address: "128.79.180.216"
-  }, {
-    id: 50,
-    first_name: "Hall",
-    last_name: "Gilbard",
-    email: "hgilbard1d@deliciousdays.com",
-    gender: "Male",
-    ip_address: "217.210.107.98"
-  }, {
-    id: 51,
-    first_name: "Ginnifer",
-    last_name: "Bourhill",
-    email: "gbourhill1e@cpanel.net",
-    gender: "Female",
-    ip_address: "201.225.7.170"
-  }, {
-    id: 52,
-    first_name: "Fax",
-    last_name: "Spilsbury",
-    email: "fspilsbury1f@cnet.com",
-    gender: "Male",
-    ip_address: "81.15.36.13"
-  }, {
-    id: 53,
-    first_name: "Amargo",
-    last_name: "Tongue",
-    email: "atongue1g@phoca.cz",
-    gender: "Female",
-    ip_address: "36.110.234.169"
-  }, {
-    id: 54,
-    first_name: "Freedman",
-    last_name: "O'Gormley",
-    email: "fogormley1h@illinois.edu",
-    gender: "Male",
-    ip_address: "161.171.7.82"
-  }, {
-    id: 55,
-    first_name: "Nicolea",
-    last_name: "Collen",
-    email: "ncollen1i@examiner.com",
-    gender: "Female",
-    ip_address: "137.116.128.140"
-  }, {
-    id: 56,
-    first_name: "Serena",
-    last_name: "Salisbury",
-    email: "ssalisbury1j@plala.or.jp",
-    gender: "Female",
-    ip_address: "243.48.213.94"
-  }, {
-    id: 57,
-    first_name: "Paloma",
-    last_name: "Dennerly",
-    email: "pdennerly1k@gnu.org",
-    gender: "Female",
-    ip_address: "151.120.204.108"
-  }, {
-    id: 58,
-    first_name: "Elwin",
-    last_name: "Housaman",
-    email: "ehousaman1l@mozilla.com",
-    gender: "Male",
-    ip_address: "167.151.169.15"
-  }, {
-    id: 59,
-    first_name: "Rickey",
-    last_name: "Yitzhok",
-    email: "ryitzhok1m@liveinternet.ru",
-    gender: "Male",
-    ip_address: "207.95.175.150"
-  }, {
-    id: 60,
-    first_name: "Wade",
-    last_name: "Willder",
-    email: "wwillder1n@lulu.com",
-    gender: "Male",
-    ip_address: "197.83.18.124"
-  }, {
-    id: 61,
-    first_name: "Leland",
-    last_name: "Lassey",
-    email: "llassey1o@indiatimes.com",
-    gender: "Female",
-    ip_address: "12.110.21.177"
-  }, {
-    id: 62,
-    first_name: "Don",
-    last_name: "Skoggings",
-    email: "dskoggings1p@e-recht24.de",
-    gender: "Male",
-    ip_address: "117.123.202.200"
-  }, {
-    id: 63,
-    first_name: "Reinold",
-    last_name: "de Vaen",
-    email: "rdevaen1q@moonfruit.com",
-    gender: "Male",
-    ip_address: "221.52.52.56"
-  }, {
-    id: 64,
-    first_name: "Iver",
-    last_name: "Gillaspy",
-    email: "igillaspy1r@gnu.org",
-    gender: "Male",
-    ip_address: "174.255.73.187"
-  }, {
-    id: 65,
-    first_name: "Rem",
-    last_name: "Corston",
-    email: "rcorston1s@oaic.gov.au",
-    gender: "Male",
-    ip_address: "201.118.35.152"
-  }, {
-    id: 66,
-    first_name: "Marya",
-    last_name: "Fidal",
-    email: "mfidal1t@irs.gov",
-    gender: "Polygender",
-    ip_address: "94.7.81.137"
-  }, {
-    id: 67,
-    first_name: "Quillan",
-    last_name: "Matissoff",
-    email: "qmatissoff1u@merriam-webster.com",
-    gender: "Male",
-    ip_address: "132.140.124.245"
-  }, {
-    id: 68,
-    first_name: "Zena",
-    last_name: "Cloney",
-    email: "zcloney1v@icq.com",
-    gender: "Female",
-    ip_address: "67.24.106.49"
-  }, {
-    id: 69,
-    first_name: "Barrett",
-    last_name: "Cruce",
-    email: "bcruce1w@plala.or.jp",
-    gender: "Male",
-    ip_address: "135.67.183.18"
-  }, {
-    id: 70,
-    first_name: "Antoine",
-    last_name: "Silson",
-    email: "asilson1x@reuters.com",
-    gender: "Male",
-    ip_address: "216.74.33.89"
-  }, {
-    id: 71,
-    first_name: "Dale",
-    last_name: "Hufton",
-    email: "dhufton1y@cyberchimps.com",
-    gender: "Female",
-    ip_address: "201.35.53.224"
-  }, {
-    id: 72,
-    first_name: "Frederique",
-    last_name: "Fareweather",
-    email: "ffareweather1z@si.edu",
-    gender: "Female",
-    ip_address: "16.115.134.0"
-  }, {
-    id: 73,
-    first_name: "Gus",
-    last_name: "Castri",
-    email: "gcastri20@home.pl",
-    gender: "Male",
-    ip_address: "50.110.245.238"
-  }, {
-    id: 74,
-    first_name: "Pauly",
-    last_name: "Gariff",
-    email: "pgariff21@symantec.com",
-    gender: "Female",
-    ip_address: "234.183.34.209"
-  }, {
-    id: 75,
-    first_name: "Brien",
-    last_name: "Stanfield",
-    email: "bstanfield22@github.com",
-    gender: "Male",
-    ip_address: "186.20.182.72"
-  }, {
-    id: 76,
-    first_name: "Vail",
-    last_name: "O'Cannon",
-    email: "vocannon23@mapy.cz",
-    gender: "Male",
-    ip_address: "200.215.89.86"
-  }, {
-    id: 77,
-    first_name: "Walt",
-    last_name: "Proudley",
-    email: "wproudley24@ox.ac.uk",
-    gender: "Agender",
-    ip_address: "92.9.140.66"
-  }, {
-    id: 78,
-    first_name: "Jessamyn",
-    last_name: "Wightman",
-    email: "jwightman25@sohu.com",
-    gender: "Female",
-    ip_address: "171.65.84.100"
-  }, {
-    id: 79,
-    first_name: "Kin",
-    last_name: "McKomb",
-    email: "kmckomb26@nature.com",
-    gender: "Male",
-    ip_address: "173.116.251.199"
-  }, {
-    id: 80,
-    first_name: "Clint",
-    last_name: "Burress",
-    email: "cburress27@oracle.com",
-    gender: "Male",
-    ip_address: "185.47.242.57"
-  }, {
-    id: 81,
-    first_name: "Violette",
-    last_name: "Marxsen",
-    email: "vmarxsen28@cyberchimps.com",
-    gender: "Female",
-    ip_address: "23.42.180.102"
-  }, {
-    id: 82,
-    first_name: "Michale",
-    last_name: "Overstone",
-    email: "moverstone29@networkadvertising.org",
-    gender: "Genderqueer",
-    ip_address: "58.226.86.90"
-  }, {
-    id: 83,
-    first_name: "Cristal",
-    last_name: "Barnet",
-    email: "cbarnet2a@google.it",
-    gender: "Genderfluid",
-    ip_address: "209.43.167.156"
-  }, {
-    id: 84,
-    first_name: "Kalle",
-    last_name: "Simak",
-    email: "ksimak2b@technorati.com",
-    gender: "Male",
-    ip_address: "205.163.0.207"
-  }, {
-    id: 85,
-    first_name: "Brynna",
-    last_name: "McAlarney",
-    email: "bmcalarney2c@cbslocal.com",
-    gender: "Female",
-    ip_address: "142.215.117.247"
-  }, {
-    id: 86,
-    first_name: "Asia",
-    last_name: "Stitfall",
-    email: "astitfall2d@yahoo.com",
-    gender: "Female",
-    ip_address: "158.194.131.154"
-  }, {
-    id: 87,
-    first_name: "Sherman",
-    last_name: "Shyres",
-    email: "sshyres2e@amazon.de",
-    gender: "Male",
-    ip_address: "54.226.137.138"
-  }, {
-    id: 88,
-    first_name: "Callean",
-    last_name: "Rivard",
-    email: "crivard2f@sohu.com",
-    gender: "Male",
-    ip_address: "53.210.166.228"
-  }, {
-    id: 89,
-    first_name: "Traver",
-    last_name: "Zimmer",
-    email: "tzimmer2g@ustream.tv",
-    gender: "Male",
-    ip_address: "58.161.78.106"
-  }, {
-    id: 90,
-    first_name: "Rube",
-    last_name: "Bradman",
-    email: "rbradman2h@va.gov",
-    gender: "Male",
-    ip_address: "45.226.252.160"
-  }, {
-    id: 91,
-    first_name: "Jeremy",
-    last_name: "Casburn",
-    email: "jcasburn2i@jugem.jp",
-    gender: "Male",
-    ip_address: "30.53.113.102"
-  }, {
-    id: 92,
-    first_name: "Lora",
-    last_name: "Granham",
-    email: "lgranham2j@bbb.org",
-    gender: "Female",
-    ip_address: "202.4.72.197"
-  }, {
-    id: 93,
-    first_name: "Aggi",
-    last_name: "Dumphry",
-    email: "adumphry2k@360.cn",
-    gender: "Female",
-    ip_address: "31.234.127.251"
-  }, {
-    id: 94,
-    first_name: "Katlin",
-    last_name: "Quarrington",
-    email: "kquarrington2l@howstuffworks.com",
-    gender: "Female",
-    ip_address: "111.6.35.63"
-  }, {
-    id: 95,
-    first_name: "Arni",
-    last_name: "Wetherby",
-    email: "awetherby2m@lulu.com",
-    gender: "Male",
-    ip_address: "32.135.25.136"
-  }, {
-    id: 96,
-    first_name: "Abbe",
-    last_name: "Worswick",
-    email: "aworswick2n@nba.com",
-    gender: "Agender",
-    ip_address: "163.6.117.46"
-  }, {
-    id: 97,
-    first_name: "Linnet",
-    last_name: "Euels",
-    email: "leuels2o@telegraph.co.uk",
-    gender: "Female",
-    ip_address: "55.249.250.36"
-  }, {
-    id: 98,
-    first_name: "Annaliese",
-    last_name: "Sinnatt",
-    email: "asinnatt2p@live.com",
-    gender: "Female",
-    ip_address: "99.89.198.176"
-  }, {
-    id: 99,
-    first_name: "Tatiana",
-    last_name: "Pryke",
-    email: "tpryke2q@163.com",
-    gender: "Female",
-    ip_address: "163.136.120.232"
-  }, {
-    id: 100,
-    first_name: "Clevie",
-    last_name: "Smallpeice",
-    email: "csmallpeice2r@japanpost.jp",
-    gender: "Male",
-    ip_address: "48.178.240.47"
-  }]
-
-  let counter = 0;
-
-  function logClicks(){
-    counter++;
-    console.log(counter);
-  }
-
-  let totalCount = 0;
-
-  function tally(){
-    totalCount++;
-    console.log("Total CLick Count", totalCount)
-  }
 
   return (
+    <div className='body-container'>
+      <div className='wrapper'>
+        <div className='todo-form'>
+          <input type="text" placeholder="Enter your todo" />
+          <button>Add Todo</button>
+        </div>
 
-    <div className="body-container">
-    
-      <table>
-        <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email </th>
-          <th>Gender</th>
-          <th>IP Address</th>
-        </tr>
-        </thead>
-        <tbody>
-        {users.map((user, i) => {
-          return (
-           <TableRow user={user} logClicks={logClicks} tally={tally} key={user.id} />
-          )
-        })}
-        </tbody>
-      </table>
+        <div className='todo-list'>
+          <ul>
+            <li>Get something some
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="delete-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+              </svg>
+              
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="check-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
 
+              </span>
+
+            </li>
+
+            <li>Get something some
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="delete-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+              </svg>
+              
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="check-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+
+              </span>
+
+            </li>
+
+            <li>Get something some
+              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="delete-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+              </svg>
+              
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="check-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+
+              </span>
+
+            </li>
+          </ul>
+        </div>
+
+      </div>
 
     </div>
-
   )
 }
 
