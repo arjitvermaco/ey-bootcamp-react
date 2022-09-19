@@ -67,13 +67,14 @@ display: flex;
     margin: 100px auto;
 }
 
-input{
+input,select{
     font-family: 'Inter', sans-serif;
     display: block;
     height: 40px;
     padding: 5px;
     width: 90%;
-    margin: 0 auto;
+    margin: 10px auto;
+    
 }
 
 button{
